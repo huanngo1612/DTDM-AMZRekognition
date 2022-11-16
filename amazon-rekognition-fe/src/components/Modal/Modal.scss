@@ -1,0 +1,119 @@
+.modal-wrapper {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+}
+.modal {
+  display: flex;
+  display: inline-block;
+  padding: 20px;
+  background: #fff;
+  border-radius: 6px;
+  width: 1400px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  justify-self: center;
+  padding: 32px;
+}
+.modal-header {
+  &-title {
+    color: #5d5b8d;
+  }
+}
+.modal-body {
+  overflow: hidden;
+  &-description {
+    margin-top: 20px;
+  }
+  &-content {
+    margin-top: 24px;
+    display: flex;
+    justify-content: space-between;
+    &-req {
+      margin: 8px 48px;
+      flex: 0 0 58.3333333333%;
+      max-width: 58.3333333333%;
+      position: relative;
+      &-img {
+        height: 500px;
+        overflow-y: auto;
+        overflow-x: hidden;
+        position: relative;
+        &-upload {
+          align-items: center;
+          display: flex;
+          margin: 8px 0px;
+          justify-content: space-between;
+        }
+        &-wrapper {
+          display: flex;
+          background: #d5dbdb;
+          place-content: center;
+          align-items: center;
+          box-sizing: border-box;
+          &-preview {
+            position: relative;
+            max-width: 99.99%;
+            height: 100%;
+            &-img {
+              display: block;
+              max-height: 30vw;
+              max-width: 100%;
+              width: auto;
+              height: auto;
+              min-height: 400px;
+              min-width: 400px;
+              // object-fit: contain;
+              image-orientation: from-image;
+            }
+          }
+        }
+      }
+
+      &-btn {
+        margin-top: 30px;
+      }
+    }
+    &-res {
+      flex: 1;
+    }
+  }
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+}
+label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #8da4f1;
+  cursor: pointer;
+  img {
+    width: 40px;
+  }
+}
+button {
+  background-color: #7b96ec;
+  color: white;
+  padding: 10px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition-duration: 0.4s;
+}
+button:hover {
+  background-color: #9aadec;
+  box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
+    0 17px 50px 0 rgba(0, 0, 0, 0.19);
+}
+button:disabled {
+  background-color: #c2ccee;
+  cursor: unset;
+  box-shadow: none;
+}

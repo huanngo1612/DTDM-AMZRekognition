@@ -1,0 +1,11 @@
+body {
+  background: linear-gradient(to right, #3bc6dd, #5594e4);
+}
+
+.wrapper-card {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 16rem));
+  gap: 3rem;
+  justify-content: center;
+  padding-top: 50px;
+}
