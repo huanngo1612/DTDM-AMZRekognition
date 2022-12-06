@@ -14,12 +14,13 @@ app.use(
   })
 );
 app.use(express.json());
+const nameBucket = "myhuanngo1612";
 
 aws.config.update({
-  accessKeyId: "ASIA3P5LC73G244K5JQQ",
-  secretAccessKey: "7jDBkdXF3/X+eZafpqW9c/VrkWzwfHu0Eecp4adn",
+  accessKeyId: "ASIA3P5LC73G3L3Q2W3L",
+  secretAccessKey: "vXhp5+NPz4mbqXQYLJNfbiMlees4PdjEVx94IGGc",
   sessionToken:
-    "FwoGZXIvYXdzEIX//////////wEaDNgCMLWlWAQyhGyoUyLPAdR9BP22nSgfbatcuYZEpQCUkglhECwotoG2pbLYLwgVhEGsjHB22g6dPdlWowDPSr1Ip6W0ajiNG//UBwJqmzm20GBT085Q2zt3BZl7PJ6d79hki14zV2UcvvxOZN3N0GUGLRh2JTm+L9onIPz2yLxZcZaF7T2d0ymZJLTAAUH36MhN1drBKeZnBD0AklaPk+vV6nQUVasEhZNqTDywk3w1PGPDJ7AMAGHQ+wf9BLdHuNwJUEBr8nLPb8km/WxZj9CmSLsA730yxJASjU+W8Sjk27GbBjItAjRq9C2mFtN4YQhQrqpeVPIoGnUj5Iny+TABGzR21tw3ZazgnUw1GrBawuQ4",
+    "FwoGZXIvYXdzEPP//////////wEaDIY5LKMmMs4xTWjgpyLPAe0Cu+YIhy8GCOTU96lp8jHb1mAY+X8/ceZIHg3H8jlx+6VhCcC+kZ/xlMFhC+QPgZ1QI7m6CvWrzRzPpDZk5t2WovD5KE5cx62YxvjsaQ8ydBHL4cuMH+Y9zK9yDCidPgBzvVTTpyqwjXPHSUzKGMcJs5ExVpCNAKgZtVBgMWA0yKN9E0QE1P6CHNDiFl4YQNS+j4LHp+GacUebOi8iv4ZQq5kN9obB5TxUZmTn54JwZDrTOTVUyZbWiW5GVZUif4+XR87HGLUerRnPCGXsWyjOtLqcBjItUgwMZ4X1Ga6ISfqEc/GuS6xK/wtClLP2zYGUXtys81tJcHe9vkMmvH7Py91P",
   region: "us-east-1",
   signatureVersion: "v4",
 });
@@ -45,7 +46,7 @@ const upload = multer({
   storage: multerS3({
     acl: "public-read",
     s3,
-    bucket: "mybucket465789",
+    bucket: nameBucket,
     key: function (req, image, cb) {
       req.image = Date.now() + image.originalname;
       cb(null, Date.now() + image.originalname);
@@ -69,7 +70,7 @@ app.post("/api/labels", (req, res) => {
   var params = {
     Image: {
       S3Object: {
-        Bucket: "mybucket465789",
+        Bucket: nameBucket,
         Name: req.body.name,
       },
     },
@@ -89,7 +90,7 @@ app.post("/api/texts", (req, res) => {
   var params = {
     Image: {
       S3Object: {
-        Bucket: "mybucket465789",
+        Bucket: nameBucket,
         Name: req.body.name,
         //Name: "1667363944222img_default.png",
       },
@@ -113,7 +114,7 @@ app.post("/api/faces", (req, res) => {
   var params = {
     Image: {
       S3Object: {
-        Bucket: "mybucket465789",
+        Bucket: nameBucket,
         Name: req.body.name,
       },
     },
@@ -130,7 +131,7 @@ app.post("/api/celeb", (req, res) => {
   var params = {
     Image: {
       S3Object: {
-        Bucket: "mybucket465789",
+        Bucket: nameBucket,
         Name: req.body.name,
       },
     },
@@ -148,13 +149,13 @@ app.post("/api/compare", (req, res) => {
     SimilarityThreshold: 0,
     SourceImage: {
       S3Object: {
-        Bucket: "mybucket465789",
+        Bucket: nameBucket,
         Name: req.body.name,
       },
     },
     TargetImage: {
       S3Object: {
-        Bucket: "mybucket465789",
+        Bucket: nameBucket,
         Name: req.body.name2,
       },
     },
